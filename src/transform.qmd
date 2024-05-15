@@ -1,0 +1,137 @@
+---
+title: "Transform"
+author: "Peter Desmet"
+format: html
+editor: visual
+---
+
+## Read data
+
+```{r}
+#| echo: false
+library(readr)
+library(here)
+library(dplyr)
+library(frictionless)
+```
+
+```{r}
+dwc_event <- read_tsv(here::here("data", "raw", "event.txt"))
+dwc_occurrence <- read_tsv(here::here("data", "raw", "occurrence.txt"))
+dwc_mof <- read_tsv(here::here("data", "raw", "measurementorfacts.txt"))
+```
+
+## Create data package
+
+```{r}
+dp <- create_package()
+```
+
+## Process events (including occurrences)
+
+Process event data:
+
+```{r}
+visit_events <-
+  dwc_event %>%
+  select(-id) %>%
+  mutate(parentEventID = NA) %>% # Original parentEventID not relevant
+  mutate(eventType = "visit") %>%
+  relocate(eventType, eventID, parentEventID, .before = NULL)
+```
+
+Process occurrence data:
+
+```{r}
+occurrence_events <-
+  dwc_occurrence %>%
+  select(-id) %>%
+  rename(parentEventID = eventID) %>% # The (higher) eventID is a parentEventID
+  rename(eventID = occurrenceID) %>% # The occurrenceID is an eventID
+  mutate(eventType = "occurrence") %>%
+  relocate(eventType, eventID, parentEventID, .before = NULL)
+```
+
+Combine both into single table:
+
+```{r}
+event <- bind_rows(visit_events, occurrence_events)
+```
+
+Create Table Schema, incl. relationships:
+
+```{r}
+event_schema <- create_schema(event) # Creates list of fields
+keys <- list(
+  primaryKeys = list(c("eventID")),
+  uniqueKeys = list(c("eventID")),
+  foreignKeys = list(c(
+    list(
+      fields = list(c("parentEventID")),
+      reference = list(
+        resource = "event",
+        fields = list(c("eventID"))
+      )
+    )
+  ))
+)
+event_schema <- append(event_schema, keys)
+```
+
+Add data as resource:
+
+```{r}
+dp <-
+  dp %>%
+  add_resource(
+    resource_name = "event",
+    data = event,
+    schema = event_schema
+  )
+```
+
+## Process Measurements or facts
+
+Process data:
+
+```{r}
+mof <- dwc_mof # No transformation required
+```
+
+Create schema + relationships:
+
+```{r}
+mof_schema <- create_schema(mof)
+keys <- list(
+  primaryKeys = NULL,
+  uniqueKeys = NULL, # No measurementID defined
+  foreignKeys = list(c(
+    list(
+      fields = list(c("id")),
+      reference = list(
+        resource = "event",
+        fields = list(c("eventID"))
+      )
+    )
+  ))
+)
+mof_schema <- append(mof_schema, keys)
+```
+
+Add data as resource:
+
+```{r}
+dp <-
+  dp %>%
+  add_resource(
+    resource_name = "measurementorfact",
+    data = mof,
+    schema = mof_schema
+  )
+```
+
+## Write data package
+
+```{r}
+write_package(dp, here::here("data", "processed"))
+```
