@@ -1,0 +1,343 @@
+    <eml:eml xmlns:eml="eml://ecoinformatics.org/eml-2.1.1"
+             xmlns:dc="http://purl.org/dc/terms/"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="eml://ecoinformatics.org/eml-2.1.1 http://rs.gbif.org/schema/eml-gbif-profile/1.2/eml.xsd"
+             packageId="9100f482-848c-42e7-bf7c-19947885ce48/v1.18" system="http://gbif.org" scope="system"
+    xml:lang="eng">
+
+        <dataset>
+                <alternateIdentifier>9100f482-848c-42e7-bf7c-19947885ce48</alternateIdentifier>
+                <alternateIdentifier>https://ipt.inbo.be/resource?r=meetnetten-libellen-transect-occurrences</alternateIdentifier>
+                <title xml:lang="eng">Meetnetten.be - Transects for dragonflies in Flanders, Belgium</title>
+                    <creator>
+            <individualName>
+                    <givenName>Frederik</givenName>
+                <surName>Piesschaert</surName>
+            </individualName>
+            <organizationName>Research Institute for Nature and Forest (INBO)</organizationName>
+            <positionName>researcher</positionName>
+            <address>
+                    <country>BE</country>
+            </address>
+                    <userId directory="http://orcid.org/">0000-0002-5843-646X</userId>
+                    </creator>
+                    <creator>
+            <individualName>
+                    <givenName>Geert</givenName>
+                <surName>De Knijf</surName>
+            </individualName>
+            <organizationName>Research Institute for Nature and Forest (INBO)</organizationName>
+            <positionName>Researcher</positionName>
+            <address>
+                    <country>BE</country>
+            </address>
+                    <userId directory="http://orcid.org/">0000-0002-7958-1420</userId>
+                    </creator>
+                    <creator>
+            <individualName>
+                    <givenName>Dimitri</givenName>
+                <surName>Brosens</surName>
+            </individualName>
+            <organizationName>Research Institute for Nature and Forest (INBO)/ Belgian Biodiversity Platform</organizationName>
+            <positionName>Researcher</positionName>
+            <address>
+                    <postalCode>9050</postalCode>
+                    <country>BE</country>
+            </address>
+            <electronicMailAddress>dimitri.brosens@inbo.be</electronicMailAddress>
+                    <userId directory="http://orcid.org/">0000-0002-0846-9116</userId>
+                    </creator>
+                    <creator>
+            <individualName>
+                    <givenName>Toon</givenName>
+                <surName>Westra</surName>
+            </individualName>
+            <organizationName>Research Institute for Nature and Forest (INBO)</organizationName>
+            <positionName>Researcher</positionName>
+            <address>
+                    <country>BE</country>
+            </address>
+            <electronicMailAddress>toon.westra@inbo.be</electronicMailAddress>
+                    <userId directory="http://orcid.org/">0000-0003-2478-9459</userId>
+                    </creator>
+                    <creator>
+            <individualName>
+                    <givenName>Peter</givenName>
+                <surName>Desmet</surName>
+            </individualName>
+            <organizationName>Research Institute for Nature and Forest (INBO)</organizationName>
+            <positionName>Researcher</positionName>
+            <address>
+                    <country>BE</country>
+            </address>
+            <electronicMailAddress>peter.desmet@inbo.be</electronicMailAddress>
+                    <userId directory="http://orcid.org/">0000-0002-8442-8025</userId>
+                    </creator>
+                    <creator>
+            <individualName>
+                    <givenName>Hannes</givenName>
+                <surName>Ledegen</surName>
+            </individualName>
+            <organizationName>Natuurpunt</organizationName>
+            <positionName>Researcher</positionName>
+            <address>
+                    <country>BE</country>
+            </address>
+            <electronicMailAddress>hannes.ledegen@natuurpunt.be</electronicMailAddress>
+            <onlineUrl>http://www.natuurpunt.be</onlineUrl>
+                    </creator>
+                    <creator>
+            <individualName>
+                    <givenName>Marc</givenName>
+                <surName>Pollet</surName>
+            </individualName>
+            <organizationName>Research Institute for Nature and Forest (INBO)</organizationName>
+            <positionName>Research manager</positionName>
+            <address>
+                    <country>BE</country>
+            </address>
+            <electronicMailAddress>marc.pollet@inbo.be</electronicMailAddress>
+                    <userId directory="http://orcid.org/">0000-0001-5198-5928</userId>
+                    </creator>
+                    <metadataProvider>
+            <individualName>
+                    <givenName>Dimitri</givenName>
+                <surName>Brosens</surName>
+            </individualName>
+            <organizationName>Research Institute for Nature and Forest (INBO)/ Belgian Biodiversity Platform</organizationName>
+            <address>
+                    <country>BE</country>
+            </address>
+            <electronicMailAddress>dimitri.brosens@inbo.be</electronicMailAddress>
+                    <userId directory="http://orcid.org/">0000-0002-0846-9116</userId>
+                    </metadataProvider>
+                    <metadataProvider>
+            <individualName>
+                    <givenName>Peter</givenName>
+                <surName>Desmet</surName>
+            </individualName>
+            <organizationName>Research Institute for Nature and Forest (INBO)</organizationName>
+                    <userId directory="http://orcid.org/">0000-0002-8442-8025</userId>
+                    </metadataProvider>
+            <pubDate>
+                    2023-12-04
+            </pubDate>
+            <language>eng</language>
+                <abstract>
+                            <para>Meetnetten.be - Transects for dragonflies in Flanders, Belgium is a sampling event dataset published by the Research Institute of Nature and Forest (INBO). It is part of the Meetnetten.be suite of monitoring networks for priority species in Flanders, in which data are collected at fixed locations using a standardized protocol (https://meetnetten.be). This dataset contains transect data for 3 priority dragonfly species, as well as other dragonflies observed during sampling. Here it is published as a standardized Darwin Core Archive and includes for each sampling event an eventID, date, location and sampling protocol (in the event core), the length of the transect (in the measurement or fact extension) and for each occurrence an occurrenceID, the number of recorded individuals, status (present/absent), life stage, sex and scientific name (in the occurrence extension). Issues with the dataset can be reported at https://github.com/inbo/meetnetten-occurrences/issues</para>
+                            <para>Generalized and/or withheld information: as these are sensitive priority species, location information is generalized to 1, 5 or 10 km Universal Transverse Mercator (UTM) grid cells. Original locations are available upon request.</para>
+                            <para>We have released this dataset to the public domain under a Creative Commons Zero waiver. We would appreciate it if you follow the INBO norms for data use (https://www.inbo.be/en/norms-data-use) when using the data. If you have any questions regarding this dataset, don&apos;t hesitate to contact us via the contact information provided in the metadata or via opendata@inbo.be.</para>
+                            <para>For all published Meetnetten.be datasets, see https://www.gbif.org/dataset/search?project_id=meetnetten.be</para>
+                </abstract>
+                        <keywordSet>
+                                    <keyword>Samplingevent</keyword>
+                            <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type.xml</keywordThesaurus>
+                        </keywordSet>
+                        <keywordSet>
+                                    <keyword>Odonata</keyword>
+                                    <keyword>dragonflies</keyword>
+                                    <keyword>damselflies</keyword>
+                                    <keyword>monitoring</keyword>
+                                    <keyword>priority species</keyword>
+                                    <keyword>Flanders</keyword>
+                            <keywordThesaurus>n/a</keywordThesaurus>
+                        </keywordSet>
+                        <keywordSet>
+                                    <keyword>Samplingevent</keyword>
+                            <keywordThesaurus>GBIF Dataset Type Vocabulary: http://rs.gbif.org/vocabulary/gbif/dataset_type_2015-07-10.xml</keywordThesaurus>
+                        </keywordSet>
+                <additionalInfo>
+                    <para>We like to thank the &quot;Libellenvereniging Vlaanderen” (https://www.odonata.be) for their input in creating this dataset.</para>
+                </additionalInfo>
+                <intellectualRights>
+                    <para>To the extent possible under law, the publisher has waived all rights to these data and has dedicated them to the <ulink url="http://creativecommons.org/publicdomain/zero/1.0/legalcode"><citetitle>Public Domain (CC0 1.0)</citetitle></ulink>. Users may copy, modify, distribute and use the work, including for commercial purposes, without restriction.</para>
+                </intellectualRights>
+                <distribution scope="document">
+                    <online>
+                        <url function="information">https://meetnetten.be</url>
+                    </online>
+                </distribution>
+                <coverage>
+                        <geographicCoverage>
+                                <geographicDescription>Flanders, Belgium</geographicDescription>
+                            <boundingCoordinates>
+                                <westBoundingCoordinate>2.53</westBoundingCoordinate>
+                                <eastBoundingCoordinate>5.94</eastBoundingCoordinate>
+                                <northBoundingCoordinate>51.51</northBoundingCoordinate>
+                                <southBoundingCoordinate>50.67</southBoundingCoordinate>
+                            </boundingCoordinates>
+                        </geographicCoverage>
+                                <temporalCoverage>
+                                        <rangeOfDates>
+                                                <beginDate>
+                                                    <calendarDate>2016-01-01</calendarDate>
+                                                </beginDate>
+                                            <endDate>
+                                                <calendarDate>2022-12-31</calendarDate>
+                                            </endDate>
+                                        </rangeOfDates>
+                                </temporalCoverage>
+                                <taxonomicCoverage>
+                                        <generalTaxonomicCoverage>The target dragonfly species for Meetnetten.be are listed at https://meetnetten.be/#group-6. Other dragonflies observed during the sampling are also included. This dataset covers the transect protocol, for which there are 3 target species.</generalTaxonomicCoverage>
+                                        <taxonomicClassification>
+                                                <taxonRankName>kingdom</taxonRankName>
+                                            <taxonRankValue>Animalia</taxonRankValue>
+                                        </taxonomicClassification>
+                                        <taxonomicClassification>
+                                                <taxonRankName>phylum</taxonRankName>
+                                            <taxonRankValue>Arthropoda</taxonRankValue>
+                                        </taxonomicClassification>
+                                        <taxonomicClassification>
+                                                <taxonRankName>class</taxonRankName>
+                                            <taxonRankValue>Insecta</taxonRankValue>
+                                        </taxonomicClassification>
+                                        <taxonomicClassification>
+                                                <taxonRankName>order</taxonRankName>
+                                            <taxonRankValue>Odonata</taxonRankValue>
+                                        </taxonomicClassification>
+                                        <taxonomicClassification>
+                                                <taxonRankName>species</taxonRankName>
+                                            <taxonRankValue>Calopteryx virgo</taxonRankValue>
+                                                <commonName>Beautiful Demoiselle / Bosbeekjuffer</commonName>
+                                        </taxonomicClassification>
+                                        <taxonomicClassification>
+                                                <taxonRankName>species</taxonRankName>
+                                            <taxonRankValue>Coenagrion pulchellum</taxonRankValue>
+                                                <commonName>Variable Damselfly / Variabele waterjuffer</commonName>
+                                        </taxonomicClassification>
+                                        <taxonomicClassification>
+                                                <taxonRankName>species</taxonRankName>
+                                            <taxonRankValue>Aeshna isoceles</taxonRankValue>
+                                                <commonName>Green-eyed Hawker / Vroege glazenmaker</commonName>
+                                        </taxonomicClassification>
+                                </taxonomicCoverage>
+                </coverage>
+                <maintenance>
+                    <description>
+                        <para></para>
+                    </description>
+                    <maintenanceUpdateFrequency>annually</maintenanceUpdateFrequency>
+                </maintenance>
+
+                    <contact>
+            <individualName>
+                    <givenName>Frederik</givenName>
+                <surName>Piesschaert</surName>
+            </individualName>
+            <organizationName>Research Institute for Nature and Forest (INBO)</organizationName>
+            <positionName>researcher</positionName>
+            <address>
+                    <country>BE</country>
+            </address>
+                    <userId directory="http://orcid.org/">0000-0002-5843-646X</userId>
+                    </contact>
+                <methods>
+                            <methodStep>
+                                <description>
+                                    <para>Researchers from INBO and Natuurpunt Studie define and document the appropriate sampling protocol for the target species.</para>
+                                </description>
+                            </methodStep>
+                            <methodStep>
+                                <description>
+                                    <para>Fieldwork is planned and coordinated by Natuurpunt Studie, using https://meetnetten.be.</para>
+                                </description>
+                            </methodStep>
+                            <methodStep>
+                                <description>
+                                    <para>Data are collected in the field by specialized volunteers, using the predefined sampling protocol.</para>
+                                </description>
+                            </methodStep>
+                            <methodStep>
+                                <description>
+                                    <para>Volunteers enter the collected data in https://meetnetten.be.</para>
+                                </description>
+                            </methodStep>
+                            <methodStep>
+                                <description>
+                                    <para>A custom SQL view is created in the meetnetten.be database to map the original data to Darwin Core as an event core, occurrence extension and measurement or fact extension.</para>
+                                </description>
+                            </methodStep>
+                            <methodStep>
+                                <description>
+                                    <para>The Darwin Core views are connected to the INBO IPT and documented with metadata.</para>
+                                </description>
+                            </methodStep>
+                            <methodStep>
+                                <description>
+                                    <para>The dataset is published and registered with GBIF.</para>
+                                </description>
+                            </methodStep>
+                        <sampling>
+                            <studyExtent>
+                                <description>
+                                    <para>1. Calopteryx virgo (Beautiful Demoiselle / Bosbeekjuffer) occurs near oxygen rich watercourses with good water quality and riverbank that mostly consist of trees and bushes. The males exhibit territorial behaviour over a 5 m stretch of sunlit water/riverbank. In Flanders it is widely distributed in the eastern half of the region.
+
+
+2. Coenagrion pulchellum (Variable Damselfly / Variabele waterjuffer) occurs mainly in moderately to nutrient-rich pools and ponds characterized by well-developed aquatic and riparian vegetation. Although it is scarcely distributed all over Flanders, it shows a clear preference for the valley of the river Scheldt and its major tributaries.
+
+
+3. Aeshna isoceles (Green-eyed Hawker / Vroege glazenmaker) occurs in moderately to nutrient-rich pools and ponds. It can also be found in nutrient-rich fens. The riparian vegetation is well developed and reed or bulrush is mostly present. The species has seen a strong increase and expansion in Flanders over the last 10 years and shows a clear preference for the major river valleys and areas with high densities of pools..</para>
+                                </description>
+                            </studyExtent>
+                            <samplingDescription>
+                                <para>Sampling was done using the protocol described in De Knijf et al. (2019) and explained to volunteers in Ledegen et al. (2017).
+
+1. Calopteryx virgo (Beautiful demoiselle / Bosbeekjuffer): a sample of 30 populations is monitored, of which 10 are counted each year. In the year a population is counted, at least three transect counts are carried out when flying adults occur (May 20 - Aug 20), with good dragonfly weather, between 11h and 16:30h. A transect is located along the shore and is at least 100m, maximum 500m long (depending on the amount of suitable habitat). During a count, the transect is walked slowly and all adults are counted up to a distance of 2 m on the bank and 3 m above the water.
+
+2. Coenagrion pulchellum (Variable Damselfly / Variabele waterjuffer): a sample of 30 populations is monitored, of which 10 are counted each year. In the year a population is counted, at least two transect counts are carried out when flying adults occur (May-June), in good dragonfly weather, between 11h and 16:30h. A transect is located along the shore and is about 100 m long (depending on the amount of suitable habitat). During a count, the transect is walked slowly and all adults are counted up to a distance of 2 m on the bank and 3 m above the water.
+
+3. Aeshna isoceles (Green-eyed Hawker / Vroege glazenmaker): a sample of 30 populations is monitored, of which 10 are counted each year. In the year a population is counted, at least two transect counts are carried out when flying adults occur (20 May - 30 June), with good dragonfly weather, between 11h and 16:30h. A transect is located along the shore and is about 100 m long (up to a maximum of 500 m depending on the amount of suitable habitat). During a count, the transect is walked slowly and all adults are counted up to a distance of 2 m on the bank and 5 m above the water.</para>
+                            </samplingDescription>
+                        </sampling>
+                        <qualityControl>
+                            <description>
+                                <para>Data are collected using a predefined sampling protocol.</para>
+                            </description>
+                        </qualityControl>
+                </methods>
+                <project id="meetnetten.be">
+                    <title>Meetnetten.be</title>
+                        <personnel>
+                            <individualName>
+                                    <givenName>Frederik</givenName>
+                                <surName>Piesschaert</surName>
+                            </individualName>
+                                        <userId directory="http://orcid.org/">0000-0002-5843-646X</userId>
+                            <role>pointOfContact</role>
+                        </personnel>
+                        <abstract>
+                            <para>Meetnetten.be is a suite of monitoring networks through which the Flemish Government is collecting high-quality information on 65 priority plant and animal species. These are species on which Flanders has to report to Europe in the framework of the Habitats and Birds Directives, but also other species that are important for the Flemish nature policy.</para>
+                        </abstract>
+                        <funding>
+                            <para>Flemish Government</para>
+                        </funding>
+                        <studyAreaDescription>
+                            <descriptor name="generic"
+                                        citableClassificationSystem="false">
+                                <descriptorValue>Flanders, Belgium</descriptorValue>
+                            </descriptor>
+                        </studyAreaDescription>
+                        <designDescription>
+                            <description>
+                                <para>Each monitoring network consists of fixed sample locations in which target species are counted based on a standardized protocol. Data collection relies mainly on specialized volunteers, coordinated by the NGO Natuurpunt Studie. Fieldwork is planned and monitored with the web tool https://meetnetten.be, which is also used for entering the collected data.</para>
+                            </description>
+                        </designDescription>
+                </project>
+        </dataset>
+            <additionalMetadata>
+                <metadata>
+                    <gbif>
+                            <dateStamp>2020-06-08T14:18:39.611+02:00</dateStamp>
+                            <hierarchyLevel>dataset</hierarchyLevel>
+                                <citation identifier="https://doi.org/10.15468/y8u6e9">Piesschaert F, De Knijf G, Brosens D, Westra T, Desmet P, Ledegen H, Pollet M (2023). Meetnetten.be - Transects for dragonflies in Flanders, Belgium. Version 1.18. Research Institute for Nature and Forest (INBO). Samplingevent dataset. https://doi.org/10.15468/y8u6e9</citation>
+                            <bibliography>
+                                        <citation>Ledegen H &amp; De Knijf G (2017) Veldwerkhandleiding Libellen. Natuurpunt Studie, Mechelen.</citation>
+                                        <citation identifier="https://doi.org/10.21436/inbor.17262395">De Knijf G, Ledegen H &amp; Westra T (2019) Monitoringsprotocol Libellen. Versie – 2.0. Rapporten van het Instituut voor Natuur- en Bosonderzoek 2019 (49). Instituut voor Natuur- en Bosonderzoek, Brussel.</citation>
+                                        <citation>De Knijf G, Anselin A, Goffart P &amp; Tailly M (eds.) (2006) De libellen (Odonata) van België: verspreiding - evolutie - habitats. Libellenwerkgroep Gomphus i.s.m. Instituut voor Natuur- en Bosonderzoek, Brussel.</citation>
+                            </bibliography>
+                            <resourceLogoUrl>https://meetnetten.be/static/img/meetnetten_banner_text_h150.png</resourceLogoUrl>
+                            <dc:replaces>9100f482-848c-42e7-bf7c-19947885ce48/v1.18.xml</dc:replaces>
+                    </gbif>
+                </metadata>
+            </additionalMetadata>
+    </eml:eml>
