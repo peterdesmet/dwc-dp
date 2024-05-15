@@ -1,6 +1,6 @@
 # Darwin Core Data Package
 
-This is a proof of concept to test how Darwin Core could be represented as a [Data Package](https://datapackage.org/).
+This is a proof of concept to test how a Darwin Core Archive could be represented as a [Data Package](https://datapackage.org/).
 
 1. Input ([data/raw](data/raw)): a Darwin Core archive (derived from [this dataset](https://ipt.inbo.be/resource?r=meetnetten-libellen-transect-occurrences)) with an Event core and Occurrence and MeasurementOrFact extensions.
 2. Transform ([src/transform.qmd]([src/transform.qmd]))
