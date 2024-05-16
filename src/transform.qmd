@@ -16,9 +16,9 @@ library(frictionless)
 ```
 
 ```{r}
-dwc_event <- read_tsv(here::here("data", "raw", "event.txt"))
-dwc_occurrence <- read_tsv(here::here("data", "raw", "occurrence.txt"))
-dwc_mof <- read_tsv(here::here("data", "raw", "measurementorfacts.txt"))
+dwc_event <- read_tsv(here::here("data", "dwc", "event.txt"))
+dwc_occurrence <- read_tsv(here::here("data", "dwc", "occurrence.txt"))
+dwc_mof <- read_tsv(here::here("data", "dwc", "measurementorfacts.txt"))
 ```
 
 ## Create data package
