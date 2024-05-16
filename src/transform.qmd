@@ -21,13 +21,15 @@ dwc_occurrence <- read_tsv(here::here("data", "dwc", "occurrence.txt"))
 dwc_mof <- read_tsv(here::here("data", "dwc", "measurementorfacts.txt"))
 ```
 
-## Create data package
+## Approach 1
+
+### Create data package
 
 ```{r}
 dp <- create_package()
 ```
 
-## Process events (including occurrences)
+### Process events (including occurrences)
 
 Process event data:
 
@@ -90,7 +92,7 @@ dp <-
   )
 ```
 
-## Process Measurements or facts
+### Process Measurements or facts
 
 Process data:
 
@@ -130,8 +132,8 @@ dp <-
   )
 ```
 
-## Write data package
+### Write data package
 
 ```{r}
-write_package(dp, here::here("data", "processed"))
+write_package(dp, here::here("data", "dwc-dp1"))
 ```
