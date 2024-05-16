@@ -182,7 +182,7 @@
               "parentEventID"
             ],
             "reference": {
-              "resource": "event",
+              "resource": "",
               "fields": [
                 "eventID"
               ]

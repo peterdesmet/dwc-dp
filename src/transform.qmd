@@ -71,7 +71,7 @@ keys <- list(
     list(
       fields = list(c("parentEventID")),
       reference = list(
-        resource = "event",
+        resource = "", # Should be "event" in v2, but generates error in v1
         fields = list(c("eventID"))
       )
     )
@@ -170,7 +170,7 @@ keys <- list(
     list(
       fields = list(c("parentEventID")), # These are not used in this dataset
       reference = list(
-        resource = "event",
+        resource = "", # Should be "event" in v2, but generates error in v1
         fields = list(c("eventID"))
       )
     )
