@@ -26,7 +26,7 @@ dwc_mof <- read_tsv(here::here("data", "dwc", "measurementorfacts.txt"))
 ### Create data package
 
 ```{r}
-dp <- create_package()
+dp1 <- create_package()
 ```
 
 ### Process events (including occurrences)
@@ -34,7 +34,7 @@ dp <- create_package()
 Process event data:
 
 ```{r}
-visit_events <-
+dp1_event1 <-
   dwc_event %>%
   select(-id) %>%
   mutate(parentEventID = NA) %>% # Original parentEventID not relevant
@@ -45,7 +45,7 @@ visit_events <-
 Process occurrence data:
 
 ```{r}
-occurrence_events <-
+dp1_event2 <-
   dwc_occurrence %>%
   select(-id) %>%
   rename(parentEventID = eventID) %>% # The (higher) eventID is a parentEventID
@@ -57,13 +57,13 @@ occurrence_events <-
 Combine both into single table:
 
 ```{r}
-event <- bind_rows(visit_events, occurrence_events)
+dp1_event <- bind_rows(dp1_event1, dp1_event2)
 ```
 
 Create Table Schema, incl. relationships:
 
 ```{r}
-event_schema <- create_schema(event) # Creates list of fields
+dp1_event_schema <- create_schema(dp1_event) # Creates list of fields
 keys <- list(
   primaryKeys = list(c("eventID")),
   uniqueKeys = list(c("eventID")),
@@ -77,18 +77,18 @@ keys <- list(
     )
   ))
 )
-event_schema <- append(event_schema, keys)
+dp1_event_schema <- append(dp1_event_schema, keys)
 ```
 
 Add data as resource:
 
 ```{r}
-dp <-
-  dp %>%
+dp1 <-
+  dp1 %>%
   add_resource(
     resource_name = "event",
-    data = event,
-    schema = event_schema
+    data = dp1_event,
+    schema = dp1_event_schema
   )
 ```
 
@@ -97,13 +97,13 @@ dp <-
 Process data:
 
 ```{r}
-mof <- dwc_mof # No transformation required
+dp1_mof <- dwc_mof # No transformation required
 ```
 
 Create schema + relationships:
 
 ```{r}
-mof_schema <- create_schema(mof)
+dp1_mof_schema <- create_schema(dp1_mof)
 keys <- list(
   primaryKeys = NULL,
   uniqueKeys = NULL, # No measurementID defined
@@ -117,23 +117,167 @@ keys <- list(
     )
   ))
 )
-mof_schema <- append(mof_schema, keys)
+dp1_mof_schema <- append(dp1_mof_schema, keys)
 ```
 
 Add data as resource:
 
 ```{r}
-dp <-
-  dp %>%
+dp1 <-
+  dp1 %>%
   add_resource(
     resource_name = "measurementorfact",
-    data = mof,
-    schema = mof_schema
+    data = dp1_mof,
+    schema = dp1_mof_schema
   )
 ```
 
 ### Write data package
 
 ```{r}
-write_package(dp, here::here("data", "dwc-dp1"))
+write_package(dp1, here::here("data", "dwc-dp1"))
 ```
+
+## Approach 2
+
+### Create data package
+
+```{r}
+dp2 <- create_package()
+```
+
+### Process events
+
+Process data:
+
+```{r}
+dp2_event <-
+  dwc_event %>%
+  select(-id) %>%
+  mutate(parentEventID = NA) %>% # Original parentEventID not relevant
+  mutate(eventType = "visit") %>%
+  relocate(eventType, eventID, parentEventID, .before = NULL)
+```
+
+Create Table Schema, incl. relationships:
+
+```{r}
+dp2_event_schema <- create_schema(dp2_event)
+keys <- list(
+  primaryKeys = list(c("eventID")),
+  uniqueKeys = list(c("eventID")),
+  foreignKeys = list(c(
+    list(
+      fields = list(c("parentEventID")), # These are not used in this dataset
+      reference = list(
+        resource = "event",
+        fields = list(c("eventID"))
+      )
+    )
+  ))
+)
+dp2_event_schema <- append(dp2_event_schema, keys)
+```
+
+Add data as resource:
+
+```{r}
+dp2 <-
+  dp2 %>%
+  add_resource(
+    resource_name = "event",
+    data = dp2_event,
+    schema = dp2_event_schema
+  )
+```
+
+### Process occurrences
+
+Process data:
+
+```{r}
+dp2_occurrence <-
+  dwc_occurrence %>%
+  select(-eventID) %>% # Duplicate of id
+  relocate(id, occurrenceID, .before = NULL)
+```
+
+Create Table Schema, incl. relationships:
+
+```{r}
+dp2_occurrence_schema <- create_schema(dp2_occurrence)
+keys <- list(
+  primaryKeys = list(c("occurrenceID")),
+  uniqueKeys = list(c("occurrenceID")),
+  foreignKeys = list(c(
+    list(
+      fields = list(c("id")),
+      reference = list(
+        resource = "event",
+        fields = list(c("eventID"))
+      )
+    )
+  ))
+)
+dp2_occurrence_schema <- append(dp2_occurrence_schema, keys)
+```
+
+Add data as resource:
+
+```{r}
+dp2 <-
+  dp2 %>%
+  add_resource(
+    resource_name = "occurrence",
+    data = dp2_occurrence,
+    schema = dp2_occurrence_schema
+  )
+```
+
+### Process Measurements or facts
+
+Process data:
+
+```{r}
+dp2_mof <- dwc_mof # No transformation required
+```
+
+Create schema + relationships:
+
+```{r}
+dp2_mof_schema <- create_schema(dp2_mof)
+keys <- list(
+  primaryKeys = NULL,
+  uniqueKeys = NULL, # No measurementID defined
+  foreignKeys = list(c(
+    list(
+      fields = list(c("id")),
+      reference = list(
+        resource = "event",
+        fields = list(c("eventID"))
+      )
+    )
+  ))
+)
+dp2_mof_schema <- append(dp2_mof_schema, keys)
+```
+
+Add data as resource:
+
+```{r}
+dp2 <-
+  dp2 %>%
+  add_resource(
+    resource_name = "measurementorfact",
+    data = dp2_mof,
+    schema = dp2_mof_schema
+  )
+```
+
+### Write data package
+
+```{r}
+write_package(dp2, here::here("data", "dwc-dp2"))
+```
+
+## 

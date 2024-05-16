@@ -1,0 +1,277 @@
+{
+  "resources": [
+    {
+      "name": "event",
+      "path": "event.csv",
+      "profile": "tabular-data-resource",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "schema": {
+        "fields": [
+          {
+            "name": "eventType",
+            "type": "string"
+          },
+          {
+            "name": "eventID",
+            "type": "string"
+          },
+          {
+            "name": "parentEventID",
+            "type": "string"
+          },
+          {
+            "name": "license",
+            "type": "string"
+          },
+          {
+            "name": "rightsHolder",
+            "type": "string"
+          },
+          {
+            "name": "accessRights",
+            "type": "string"
+          },
+          {
+            "name": "datasetID",
+            "type": "string"
+          },
+          {
+            "name": "institutionCode",
+            "type": "string"
+          },
+          {
+            "name": "datasetName",
+            "type": "string"
+          },
+          {
+            "name": "informationWithheld",
+            "type": "string"
+          },
+          {
+            "name": "dataGeneralizations",
+            "type": "string"
+          },
+          {
+            "name": "samplingProtocol",
+            "type": "string"
+          },
+          {
+            "name": "eventDate",
+            "type": "date"
+          },
+          {
+            "name": "eventRemarks",
+            "type": "string"
+          },
+          {
+            "name": "locationID",
+            "type": "string"
+          },
+          {
+            "name": "continent",
+            "type": "string"
+          },
+          {
+            "name": "countryCode",
+            "type": "string"
+          },
+          {
+            "name": "locality",
+            "type": "string"
+          },
+          {
+            "name": "decimalLatitude",
+            "type": "number"
+          },
+          {
+            "name": "decimalLongitude",
+            "type": "number"
+          },
+          {
+            "name": "geodeticDatum",
+            "type": "string"
+          },
+          {
+            "name": "coordinateUncertaintyInMeters",
+            "type": "number"
+          },
+          {
+            "name": "georeferenceRemarks",
+            "type": "string"
+          }
+        ],
+        "primaryKeys": [
+          "eventID"
+        ],
+        "uniqueKeys": [
+          "eventID"
+        ],
+        "foreignKeys": [
+          {
+            "fields": [
+              "parentEventID"
+            ],
+            "reference": {
+              "resource": "event",
+              "fields": [
+                "eventID"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "occurrence",
+      "path": "occurrence.csv",
+      "profile": "tabular-data-resource",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "occurrenceID",
+            "type": "string"
+          },
+          {
+            "name": "collectionCode",
+            "type": "string"
+          },
+          {
+            "name": "basisOfRecord",
+            "type": "string"
+          },
+          {
+            "name": "recordedBy",
+            "type": "string"
+          },
+          {
+            "name": "individualCount",
+            "type": "number"
+          },
+          {
+            "name": "sex",
+            "type": "string"
+          },
+          {
+            "name": "lifeStage",
+            "type": "string"
+          },
+          {
+            "name": "behavior",
+            "type": "string"
+          },
+          {
+            "name": "occurrenceStatus",
+            "type": "string"
+          },
+          {
+            "name": "occurrenceRemarks",
+            "type": "string"
+          },
+          {
+            "name": "scientificName",
+            "type": "string"
+          },
+          {
+            "name": "kingdom",
+            "type": "string"
+          },
+          {
+            "name": "phylum",
+            "type": "string"
+          },
+          {
+            "name": "class",
+            "type": "string"
+          },
+          {
+            "name": "order",
+            "type": "string"
+          },
+          {
+            "name": "taxonRank",
+            "type": "string"
+          },
+          {
+            "name": "vernacularName",
+            "type": "string"
+          },
+          {
+            "name": "nomenclaturalCode",
+            "type": "string"
+          }
+        ],
+        "primaryKeys": [
+          "occurrenceID"
+        ],
+        "uniqueKeys": [
+          "occurrenceID"
+        ],
+        "foreignKeys": [
+          {
+            "fields": [
+              "id"
+            ],
+            "reference": {
+              "resource": "event",
+              "fields": [
+                "eventID"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "measurementorfact",
+      "path": "measurementorfact.csv",
+      "profile": "tabular-data-resource",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "measurementType",
+            "type": "string"
+          },
+          {
+            "name": "measurementValue",
+            "type": "string"
+          },
+          {
+            "name": "measurementUnit",
+            "type": "string"
+          }
+        ],
+        "primaryKeys": null,
+        "uniqueKeys": null,
+        "foreignKeys": [
+          {
+            "fields": [
+              "id"
+            ],
+            "reference": {
+              "resource": "event",
+              "fields": [
+                "eventID"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
